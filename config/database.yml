@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: smart_fridge_api_development
+
+test:
+  <<: *default
+  database: smart_fridge_api_test
+
+production:
+  <<: *default
+  database: smart_fridge_api_production
+  username: smart_fridge_api
+  password: <%= ENV['SMART-FRIDGE_API_DATABASE_PASSWORD'] %>
